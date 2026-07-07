@@ -5,24 +5,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:istiqama/features/azkar/presentation/cubit/azkar_cubit.dart';
 import 'package:istiqama/features/azkar/presentation/pages/all_categories_screen.dart';
 import 'package:istiqama/features/azkar/presentation/pages/azkar_page.dart';
+import 'package:istiqama/features/hadith/presentation/pages/book_selection_screen.dart';
 import 'package:istiqama/features/prayer_times/presentation/pages/prayer_times_page.dart';
 import 'package:istiqama/features/quran/presentation/pages/surah_list_page.dart';
 import 'package:istiqama/features/tasbih/presentation/pages/tasbih_page.dart';
-
 import '../cubit/home_cubit.dart';
-
 import '../cubit/home_state.dart';
-
 import '../widgets/feature_card_widget.dart';
-
 import '../widgets/full_width_action_buttons.dart';
-
 import '../widgets/prayer_card_widget.dart';
-
 import '../widgets/teal_header_widget.dart';
-
 import '../widgets/verse_card_widget.dart';
 
 class HomeView extends StatefulWidget {
@@ -168,8 +163,10 @@ class _HomeViewBody extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    const AllCategoriesScreen(),
+                                builder: (context) => BlocProvider(
+                                  create: (_) => AzkarCubit()..loadAzkar(),
+                                  child: const AllCategoriesScreen(),
+                                ),
                               ),
                             );
                           } else if (title.contains('الأدعية') ||
@@ -187,9 +184,15 @@ class _HomeViewBody extends StatelessWidget {
                                 builder: (context) => const PrayerTimesPage(),
                               ),
                             );
-                          }
-                          // 👇 اللوجيك بتاع المصحف الشريف بعد ما بقا شايف المتغير بالملي 👇
-                          else if (title.contains('المصحف') ||
+                          } else if (title.contains('الحديث')) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const BookSelectionScreen(),
+                              ),
+                            );
+                          } else if (title.contains('المصحف') ||
                               title.contains('القرآن')) {
                             if (widgejsonData != null) {
                               Navigator.push(

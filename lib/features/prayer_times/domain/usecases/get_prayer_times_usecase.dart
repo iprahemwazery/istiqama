@@ -6,7 +6,7 @@ class GetPrayerTimesUseCase {
 
   GetPrayerTimesUseCase({required this.repository});
 
-  List<PrayerTimeEntity> call() {
-    return repository.getPrayerTimes();
+  List<PrayerTimeEntity> call(double latitude, double longitude) {
+    return repository.getPrayerTimes(latitude, longitude);
   }
 }

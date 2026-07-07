@@ -419,9 +419,9 @@ class _QuranPageContentState extends State<QuranPageContent>
               fontSize: index == 1 || index == 2
                   ? 28.sp
                   : index == 145 || index == 201
-                  ? index == 532 || index == 533
-                        ? 22.5.sp
-                        : 22.4.sp
+                  ? 22.4.sp
+                  : index == 532 || index == 533
+                  ? 22.5.sp
                   : 23.1.sp,
               backgroundColor: Colors.transparent,
             ),
