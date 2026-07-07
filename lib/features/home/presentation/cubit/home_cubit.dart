@@ -81,18 +81,18 @@ class HomeCubit extends Cubit<HomeState> {
               backgroundColor: HomeColors.gold,
             ),
             FeatureModel(
-              title: 'المساجد',
-              subtitle: 'أقرب المساجد',
-              icon: Icons.location_on,
-              iconColor: HomeColors.gold,
-              backgroundColor: HomeColors.gold,
+              title: 'تفسير الأحلام',
+              subtitle: 'تفسير أحلامك بالذكاء الاصطناعي',
+              icon: Icons.auto_stories,
+              iconColor: HomeColors.primaryGreen,
+              backgroundColor: HomeColors.primaryGreen,
             ),
             FeatureModel(
               title: 'الحديث',
               subtitle: 'الحدايث النبويه',
               icon: Icons.auto_stories,
-              iconColor: HomeColors.gold,
-              backgroundColor: HomeColors.gold,
+              iconColor: HomeColors.primaryGreen,
+              backgroundColor: HomeColors.primaryGreen,
             ),
             FeatureModel(
               title: 'تعليم القرآن',
@@ -129,9 +129,7 @@ class HomeCubit extends Cubit<HomeState> {
         permission == LocationPermission.denied) {
       _coordinates = Coordinates(30.0444, 31.2357);
       _useCase = GetPrayerCalculationUseCase(
-        repository: PrayerCalculationRepositoryImpl(
-          coordinates: _coordinates!,
-        ),
+        repository: PrayerCalculationRepositoryImpl(coordinates: _coordinates!),
       );
     } else {
       try {

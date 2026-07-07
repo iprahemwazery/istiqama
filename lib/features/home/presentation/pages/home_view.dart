@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:istiqama/features/azkar/presentation/cubit/azkar_cubit.dart';
 import 'package:istiqama/features/azkar/presentation/pages/all_categories_screen.dart';
 import 'package:istiqama/features/azkar/presentation/pages/azkar_page.dart';
+import 'package:istiqama/features/dream_ai/presentation/pages/dream_ai_page.dart';
 import 'package:istiqama/features/hadith/presentation/pages/book_selection_screen.dart';
 import 'package:istiqama/features/prayer_times/presentation/pages/prayer_times_page.dart';
 import 'package:istiqama/features/quran/presentation/pages/surah_list_page.dart';
@@ -182,6 +183,13 @@ class _HomeViewBody extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => const PrayerTimesPage(),
+                              ),
+                            );
+                          } else if (title.contains('تفسير')) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const DreamAiPage(),
                               ),
                             );
                           } else if (title.contains('الحديث')) {
